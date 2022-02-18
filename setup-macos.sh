@@ -175,7 +175,7 @@ FONTS=(
 	font-liberation-mono-for-powerline
 	font-menlo-for-powerline
 	font-roboto
-    font-source-code-pro-for-powerline
+    	font-source-code-pro-for-powerline
 )
 brew cask install "${FONTS[@]}"
 
