@@ -38,7 +38,6 @@ PACKAGES=(
     autoconf
     awscli
     azure-cli
-    berkeley-db
     ca-certificates
     ccat
     diff-so-fancy
@@ -162,6 +161,35 @@ PYTHON_PACKAGES=(
 )
 sudo pip install "${PYTHON_PACKAGES[@]}"
 
+## Fonts 
+echo_ok "Installing fonts..."
+brew tap caskroom/fonts
+FONTS=(
+	font-clear-sans
+	font-consolas-for-powerline
+	font-dejavu-sans-mono-for-powerline
+	font-fira-code
+	font-fira-mono-for-powerline
+	font-inconsolata
+	font-inconsolata-for-powerline
+	font-liberation-mono-for-powerline
+	font-menlo-for-powerline
+	font-roboto
+    font-source-code-pro-for-powerline
+)
+brew cask install "${FONTS[@]}"
+
+
+echo_ok "Configuring OSX..."
+
+# change default screenshots folder
+mkdir ~/screenshots
+defaults write com.apple.screencapture location /Users/your-username/screenshots
+
+# Disable "natural" scroll
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Github configuration, remove or comment out if you want to do this manually
 echo_ok "Configuring Github"
 
 if [[ ! -f ~/.ssh/id_rsa ]]; then
@@ -200,36 +228,6 @@ if [[ ! -f ~/.ssh/id_rsa ]]; then
 		ssh -T git@github.com
 	fi
 fi
-
-
-## Fonts 
-echo_ok "Installing fonts..."
-brew tap caskroom/fonts
-FONTS=(
-	font-clear-sans
-	font-consolas-for-powerline
-	font-dejavu-sans-mono-for-powerline
-	font-fira-code
-	font-fira-mono-for-powerline
-	font-inconsolata
-	font-inconsolata-for-powerline
-	font-liberation-mono-for-powerline
-	font-menlo-for-powerline
-	font-roboto
-    font-source-code-pro-for-powerline
-)
-brew cask install "${FONTS[@]}"
-
-
-echo_ok "Configuring OSX..."
-
-# change default screenshots folder
-mkdir ~/screenshots
-defaults write com.apple.screencapture location /Users/your-username/screenshots
-
-# Disable "natural" scroll
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-
 
 # Finish installation script
 echo_ok "Installation finished, enjoy."
