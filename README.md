@@ -1,5 +1,6 @@
 # macOS setup script
 ## Changelog
+21/02/2022 - refactored scripts as own files, moved brewfile to own folder for easier customization and better viewability  
 18/02/2022 - modified order and updated readme. added some explanations and list of packages  
 15/02/2022 - initial commit, no testrun yet on script
 ***
