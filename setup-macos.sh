@@ -29,7 +29,7 @@ fi
 brew update
 echo "Install Homebrew Packages"
 brew tap homebrew/bundle
-brew bundle --file=~/bundle-folder/brewfile
+brew bundle --file=~/brew/brewfile
 
 echo_ok "Cleaning up..."
 brew cleanup
